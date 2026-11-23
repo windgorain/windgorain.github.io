@@ -20,7 +20,7 @@
 
             <nav class="desktop-nav">
                 <ul>
-                    <li> <a href="/traversal/user/user_reg.htm" style="color:#aa0000;">免费注册</a> </li>
+                    <li> <a href="https://vnmesh.cn/traversal/user/user_reg.htm" style="color:#aa0000;">免费注册</a> </li>
                 </ul>
             </nav>
 
@@ -37,7 +37,7 @@
                 <li><a href="/traversal/index.htm">内网穿透</a></li>
                 <li><a href="/mgw/index.htm">MGW</a></li>
                 <li><a href="/klc/index.htm">KLC</a></li>
-                <a href="/traversal/user/user_reg.htm" class="cta-button" style="color:white;">注册</a>
+                <a href="https://vnmesh.cn/traversal/user/user_reg.htm" class="cta-button" style="color:white;">注册</a>
             </ul>
         </nav>
     </header>
