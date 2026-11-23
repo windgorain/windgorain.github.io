@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNMesh - 内网穿透</title>
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/grid.css">
+</head>
+<body>
+    <div id="toolbar"></div>
+    <script src="/js/toolbar.js"></script>
+
+    <section class="hero">
+       <div class="container">
+            <div class="heor-content">
+                <h1>VNMesh<span>内网穿透</span></h1>
+                <p> 无需公网IP，快速发布应用到公网 </p>
+
+                <div class="line">
+                    <div style="display: flex; gap: 10px; margin-top: auto;">
+                        <a href="user/user_reg.htm" class="download-btn" style="background-color:#aa0000;">免费注册</a>
+                        <a href="index.htm" class="download-btn" style="background-color:#765498;">客户端下载</a>
+                        <a href="server.htm" class="download-btn" style="background-color:#765498;">服务端下载</a>
+                        <a href="doc/index.htm" class="download-btn" target="_blank" style="background-color:#987654;">文档中心</a>
+                    </div>
+                </div>
+
+                <div class="line">
+
+                    <div class="line-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>当前版本：1.2.2</span>
+                    </div>
+
+                    <a href="client_version.htm">
+                        <div class="line-item">
+                            <i class="fas fa-history"></i>
+                            <span>发布历史</span>
+                        </div>
+                    </a>
+
+                    <div class="line-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>最新发布日期：2026年11月1日</span>
+                    </div>
+
+                </div>
+
+            </div>
+       </div>
+    </section>
+
+    <section class="container">
+        <div class="section-title">
+            <h2>请选择系统</h2>
+       </div>
+
+        <div class="grids">
+
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <div>
+                        <h3>Windows</h3>
+                        <p>Windows 7/8/10/11</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/windows/vnmesh_windows_x64_1.2.2.zip" class="download-btn"><i class="fas fa-download"></i>64位</a>
+                    <a href="download/windows/vnmesh_windows_x86_1.2.2.zip" class="download-btn"><i class="fas fa-download"></i>32位</a>
+                </div>
+            </div>
+
+            <div class="grid-card mac">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <div>
+                        <h3>macOS</h3>
+                        <p>macOS 11.0 或更高版本</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/macos/vnmesh_macos_intel_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Intel CPU</a>
+                    <a href="download/macos/vnmesh_macos_apple_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Apple Silicon</a>
+                </div>
+            </div>
+
+            <div class="grid-card linux">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <div>
+                        <h3>Linux 64位</h3>
+                        <p>Linux/Openwrt/树莓派 等系统</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/linux/vnmesh_linux_x64_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>x64</a>
+                    <a href="download/linux/vnmesh_linux_arm64_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Arm64</a>
+                </div>
+            </div>
+
+            <div class="grid-card linux">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <div>
+                        <h3>Linux 32位</h3>
+                        <p>Linux/Openwrt/树莓派 等系统</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/linux/vnmesh_linux_arm32_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Arm32</a>
+                    <a href="download/linux/vnmesh_linux_mips_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>MIPS</a>
+                    <a href="download/linux/vnmesh_linux_mipsel_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>MIPSEL</a>
+                </div>
+            </div>
+
+            <div class="grid-card linux">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <div>
+                        <h3>Linux轻量版</h3>
+                        <p>极低的内存需求</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/linux/vnmesh_linux_nossl_arm32_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Arm32</a>
+                    <a href="download/linux/vnmesh_linux_nossl_mips_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>MIPS</a>
+                    <a href="download/linux/vnmesh_linux_nossl_mipsel_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>MIPSEL</a>
+                </div>
+            </div>
+
+            <div class="grid-card docker">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab">🐳</i>
+                    </div>
+                    <div>
+                        <h3>Docker镜像</h3>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/docker/vnmesh_docker_x64_1.2.2.tar" class="download-btn"><i class="fas fa-download"></i>x64 CPU</a>
+                    <a href="download/docker/vnmesh_docker_arm64_1.2.2.tar" class="download-btn"><i class="fas fa-download"></i>Arm64 CPU</a>
+                </div>
+            </div>
+
+            <div class="grid-card termux">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fab">>_</i>
+                    </div>
+                    <div>
+                        <h3>安卓Termux</h3>
+                        <p>安卓手机通常为64位, 机顶盒通常为32位</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/termux/vnmesh_termux_arm64_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Arm64</a>
+                    <a href="download/termux/vnmesh_termux_arm32_1.2.2.tar.gz" class="download-btn"><i class="fas fa-download"></i>Arm32</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container">
+        <div class="section-title">
+            <h2>客户端使用说明</h2>
+       </div>
+
+        <section class="instructions">
+            <h3>系统安装</h3>
+
+            <li>macOS:
+            <pre><p class="code">tar xzf <font color=green>vnmesh_macos_apple_1.2.2.tar.gz</font>  #绿色部分改为您下载文件的名字
+cd vnmesh
+./start_vnmesh_macos.sh </p></pre>
+            </li>
+
+            <li>Linux:
+            <pre><p class="code">tar xzf <font color=green>vnmesh_linux_x64_1.2.2.tar.gz</font>  #绿色部分改为您下载文件的名字
+cd vnmesh
+./vnmesh -d </p></pre>
+                <p class="note"> 
+                vnmesh -d: 后台运行<br>
+                vnmesh -c: 交互式前台运行<br>
+                vnmesh -f: 非交互式前台运行<br>
+                </p>
+            </li>
+
+            <li>Windows:<br>
+                解压下载的文件，进入解压后的目录，双击运行 runcmd 或 vnmesh 程序。第一次运行会出现风险提示，点击"更多信息"，选择"仍要运行"即可。<br>
+                <img src="doc/pages/img/fast_start/windows_run_0.png" height="300">
+                <img src="doc/pages/img/fast_start/windows_run_1.png" height="300">
+                <img src="doc/pages/img/fast_start/windows_run_2.png" height="300">
+        
+                <p class="note"> 
+                vnmesh: 后台运行程序, 运行后会自动切换到后台 <br>
+                runcmd: 前台运行程序, 可以输入交互式命令 <br>
+                </p>
+            </li>
+
+            <li>安卓Termux:
+            <pre><p class="code">tar xzf <font color=green>vnmesh_termux_x64_1.2.2.tar.gz</font>  #绿色部分改为您下载文件的名字
+cd vnmesh
+./vnmesh -d </p></pre>
+            </li>
+
+            <li>Docker:
+            <pre><p class="code">docker load -i <font color=green>vnmesh_docker_x64_1.2.2.tar</font> #绿色部分改为您下载文件的名字 
+docker run -p 8888:8888 -d --name vnmesh vnmesh</p></pre>
+            </li>
+
+            <br>
+
+            <h3>配置管理</h3>
+
+            <li> 稍等几秒，等待客户端初始化完成, 即可使用浏览器访问VNMesh的客户端管理系统: <br>
+                 本地管理: <a href="http://localhost:8888" target="_blank"><font style="color:var(--text-primary);">http://localhost:8888</font></a> <br>
+                 远程管理: <a href="http://目标IP:8888" target="_blank"><font style="color:var(--text-primary);">http://目标IP:8888</font></a><br>
+            </li>
+            <li>到"基础配置 - 用户登录"中设置用户名和密码。</li>
+            <li>到"公网服务 - 域名映射"中配置Web映射服务。</li>
+            <li>到"公网服务 - 端口映射"中配置TCP端口映射服务。</li>
+            <li>到"公网服务 - 设备映射"中配置全端口设备映射服务。</li>
+            <li>更多功能请参考 <a href="doc/index.htm" target="_blank"><font style="color:var(--text-primary);">VNMesh文档中心</font></a></li>
+
+        </section>
+        
+        <section class="instructions">
+            <p>如果没有浏览器, 可以使用其它方式配置, 参见:
+                <a href="doc/index.htm#how_to_config_client" target="_blank"><font style="color:var(--text-primary);">客户端配置方式</font> </a>
+            </p>
+        </section>
+
+    </section>
+
+    <div id="footbar"></div> <script src="/js/footbar.js"></script>
+    <div id="copyright"></div> <script src="/js/copyright.js"></script>
+    <script src="/js/base.js"></script>
+
+</body>
+</html>

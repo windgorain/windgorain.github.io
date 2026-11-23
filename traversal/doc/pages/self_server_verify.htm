@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>自建服务器认证码</h1>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "自建服务器-认证码" </p>
+    <img src="img/self_server/self_server_verify_1.png" height="180">
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>
+xnetc-view>pn auth token 123456
+xnetc-view>no pn auth token
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=300>pn auth token %PASSWORD</td> <td>设置认证码</td> </tr>
+            <tr> <td>no pn auth token </td> <td>取消认证码</td> </tr>
+        </tbody>
+    </table>
+
+    <h2>注意事项</h2>
+    <p class="note"> 当使用自己的服务器作为公网转发节点时，建议您配置自建服务器的密码。客户端和服务器上配置的密码保持一致即可。 </p>
+    <p class="note"> 如果您未在服务器上设置密码，则任何都可以将您的服务器作为他的公网转发节点。 </p>
+    <p class="note"> 配置服务器上的密码，请参见 <a target="_blank" href="/traversal/server.htm"> 服务端配置 </a>  中的 "配置PN Auth Token" </p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "self_server_verify"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

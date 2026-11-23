@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>IPACL</h1>
+    <p>IPACL: IP访问控制列表, 用于控制IP报文的访问权限。</p>
+    <p>配置路径: "ACL-IPACL" </p>
+
+    <img src="img/acl/ip_acl_1.png" height="250">
+
+    <p> 这里已经默认存在两条ACL, 这两条ACL是网络穿透使用的出现规则和入向规则, 当在"网络穿透-基础配置"中使能ACL后, 这两条ACL就会开始工作。</p>
+    <p>点击ACL名称, 可编辑规则。</p>
+
+    <img src="img/acl/ip_acl_2.png" height="200">
+
+    <p><strong>说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=100>缺省动作</td> <td> 此条ACL的默认动作, 可选择禁止访问或者允许访问 </td> </tr>
+            <tr> <td> 工作模式</td> <td>
+                正常模式: 此条ACL正常工作<br>
+                旁路模式: 此条ACL被忽略, 允许所有访问<br>
+                观察模式: 允许所有访问, 并对ACL匹配情况进行统计<br>
+            </td> </tr>
+            <tr> <td>描述信息</td> <td>描述此条ACL</td> </tr>
+            <tr> <td>三个按钮</td> <td>
+                确定: 用于更改配置后提交配置<br>
+                规则: 进一步配置ACL详细规则<br>
+                取消: 丢弃更改并返回列表页面<br>
+            </td> </tr>
+        </tbody>
+    </table>
+
+    <p> 点击规则按钮可进一步进入详细规则编辑页面 </p>
+    <img src="img/acl/ip_acl_3.png" height="300">
+
+    <p><strong>说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=100>ID</td> <td> 表示规则的优先级, 越小优先级越高. 点击规则ID可编辑此条规则</td> </tr>
+            <tr> <td> 动作</td> <td>表示命中此条规则后执行的动作, permit和deny分别表示允许和拒绝</td></tr>
+            <tr> <td>协议</td> <td>匹配IP协议号。1: icmp, 6: tcp, 17: udp </td></tr>
+            <tr> <td>源地址</td> <td>匹配源IP</td></tr>
+            <tr> <td>目的地址</td> <td>匹配目的IP</td></tr>
+            <tr> <td>源端口</td> <td>匹配源端口</td></tr>
+            <tr> <td>目的端口</td> <td>匹配目的端口</td></tr>
+            <tr> <td>匹配计数</td> <td> 表示的是本条规则被命中了多少次</td> </tr>
+            <tr> <td>复位ID按钮</td> <td>可按照顺序重新布局规则列表</td> </tr>
+        </tbody>
+    </table>
+
+    <p> 点击新建按钮可创建一条规则 </p>
+    <img src="img/acl/ip_acl_4.png" height="300">
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "ipacl"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

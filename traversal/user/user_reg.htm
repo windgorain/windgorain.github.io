@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNMesh - 专业网络互联解决方案</title>
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="user_reg.css">
+</head>
+<body>
+    <div id="toolbar"></div>
+    <script src="/js/toolbar.js"></script>
+
+    <section class="register-section">
+        <div class="register-card">
+        	<h1>用户注册</h1>
+        	<div class="subhead"></div>
+            <hr>
+
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <!-- 用户名 -->
+                <div class="form-row">
+                    <label>用户名 <i>*</i></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" id="username" name="username" placeholder="字母或数字,不能全部由数字组成" autocomplete="off" required>
+                    </div>
+                    <div class="form-message" id="usernameMsg"></div>
+                </div>
+
+                <!-- 密码 -->
+                <div class="form-row">
+                    <label>密码 <i>*</i></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock icon"></i>
+                        <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                    </div>
+                    <div class="form-message" id="passwordMsg"></div>
+                </div>
+
+                <!-- 确认密码 -->
+                <div class="form-row">
+                    <label>确认密码 <i>*</i></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock icon"></i>
+                        <input type="password" id="confirmPwd" name="confirmPwd" placeholder="再次输入" required>
+                    </div>
+                    <div class="form-message" id="confirmMsg"></div>
+                </div>
+
+                <!-- 手机号 -->
+                <div class="form-row">
+                    <label>手机号码</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone icon"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="11位手机号" autocomplete="off">
+                    </div>
+                    <div class="form-message" id="phoneMsg"></div>
+                </div>
+
+                <!-- 验证码 -->
+                <div class="form-row">
+                    <label>验证码 <i>*</i> <img id="vld_img" width="17%" src="/webapi.cgi?do=vldimg" ></img> <a href="#" style="color:#888888;" onclick="refresh_vldimg()"> 刷新验证码 </a></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-shield-alt icon"></i>
+                        <input type="text" id="vldcode" name="vldcode" autocomplete="off" required>
+                    </div>
+                    <div class="form-message" id="vldcodeMsg"></div>
+                </div>
+
+                <!-- 条款同意 -->
+                <div class="checkbox-row">
+                    <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                    <label for="agreeTerms">同意 
+                        <a href="../clause/clause.htm" target="_blank">《协议》</a>
+                        &
+                        <a href="../clause/privacy.htm" target="_blank">《隐私》</a> <i>*</i></label>
+                </div>
+                <div class="form-message" id="termsMsg"></div>
+
+                <button type="submit">注册新账户</button>
+
+                <hr>
+                <div class="footer-links">
+                    <span>已有账户？</span> <a href="user_modify.htm">去修改密码</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <div id="footbar"></div> <script src="/js/footbar.js"></script>
+    <div id="copyright"></div> <script src="/js/copyright.js"></script>
+
+    <script src="/js/base.js"></script>
+    <script src="user_reg.js"></script>
+
+</body>
+</html>

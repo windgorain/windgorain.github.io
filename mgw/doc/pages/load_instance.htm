@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>load instance</h1>
+
+    <p>加载实例</p>
+    <p>命令格式: sudo ./mgwtool load instance -f 文件名 -n 实例名 [-d 描述信息] [-l 标签] </p>
+    <p>示例: </p>
+<pre><p class="code">$ sudo ./mgwtool load instance -n c1 -f cluster/xdp_ip_cluster_kern.o -d 描述示例 -l 标签示例
+$ sudo ./mgwtool show attr -n c1
+mgw: ip_cluster
+instance: c1
+description: 描述示例
+label: 标签示例
+class: cluster
+in_type: xdp
+out_type: xdp
+enable: 0
+</p></pre>
+
+    <h2>说明</h2>
+    <table>
+        <tr><td width=100px>-f</td><td>指定MGW文件</td></tr>
+        <tr><td>-n</td><td>加载的实例名称</td></tr>
+        <tr><td>-d</td><td>描述信息</td></tr>
+        <tr><td>-l</td><td>标签信息</td></tr>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "load_instance"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

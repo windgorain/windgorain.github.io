@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>triode_traffic</h1>
+
+    <h2>中文名</h2>
+    <p>三极管流量控制器</p>
+    <h2>作用</h2>
+    <li>slot 0返回PASS, 则调用slot 1并返回slot 1的返回值</li>
+    <li>slot 0返回DROP, 则立即返回PASS, 不再调用slot 1</li>
+    <li>slot 0返回其他值, 则立即返回此返回值, 不再调用slot 1</li>
+    <h2>MGW文件</h2>
+    <p>traffic/xdp_triode_traffic_kern.o</p>
+    <p>traffic/tc_triode_traffic_kern.o</p>
+    <h2>控制程序</h2>
+    <p>无</p>
+    <h2>示例脚本</h2>
+<pre><p class="code">
+#/bin/bash
+#文件名称: xdp_triode_traffic.sh
+#作用: 对特定流量进行限速
+#使用方法: ./xdp_triode_traffic.sh 接口
+#使用示例: ./xdp_triode_traffic.sh eth0
+#终止脚本: Ctrl+C
+
+IF_NAME=eth0
+if [ "$1" ];then
+    IF_NAME=$1
+fi
+
+#加载instance
+./mgwtool load instance -n triode -f traffic/xdp_triode_traffic_kern.o
+./mgwtool load instance -n acl -f leaf/xdp_ip_acl_leaf_kern.o
+./mgwtool load instance -n ppslimit1 -f leaf/xdp_pps_limit_global_leaf_kern.o
+
+#关联到接口
+./mgwtool attach xdp -n triode -t ${IF_NAME} -p mgw_input
+
+#关联过滤器
+./mgwtool attach instance -n acl -t triode -p mgw_input -s 0
+
+#配置ACL过滤器
+./leaf/ip_acl add -n acl -a 0 -t 1
+./leaf/ip_acl default deny -n acl
+
+#关联到slot
+./mgwtool attach instance -n ppslimit1 -t triode -p mgw_input -s 1
+
+#添加限速规则
+./leaf/pps_limit set -n ppslimit1 -l 1
+
+./mgwtool enable all
+
+trap finish INT
+finish () {
+    echo ""
+    echo "quit..."
+    #从接口解除关联
+    ./mgwtool deta xdp -t ${IF_NAME}
+    #卸载所有instance
+    ./mgwtool unload all-instance
+    exit
+}
+
+./leaf/pps_limit show -n ppslimit1
+
+echo "ping me -i 0.1"
+#等待ctrl+c结束
+sleep infinity
+
+</p></pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_triode_traffic"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

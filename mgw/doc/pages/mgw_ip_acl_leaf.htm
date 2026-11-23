@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>ip_acl_leaf</h1>
+
+    <h2>作用</h2>
+    <p>对报文/内层报文做ACL权限控制过滤, 根据规则返回PASS或DROP</p>
+    <p>带bitmatch的是高性能组件</p>
+    <h2>MGW文件</h2>
+    <p>leaf/xdp_ip_acl_leaf_kern.o</p>
+    <p>leaf/xdp_ip_acl_bitmatch_leaf_kern.o</p>
+    <p>leaf/xdp_ip_acl_bitmatch2_leaf_kern.o</p>
+    <p>leaf/xdp_ip_acl_bitmatch4_leaf_kern.o</p>
+    <p>leaf/xdp_vxlan_inner_ip_acl_leaf_kern.o</p>
+    <p>leaf/xdp_vxlan_inner_ip_acl_bitmatch_leaf_kern.o</p>
+    <p>leaf/xdp_vxlan_inner_ip_acl_bitmatch2_leaf_kern.o</p>
+    <p>leaf/xdp_vxlan_inner_ip_acl_bitmatch4_leaf_kern.o</p>
+    <p>leaf/xdp_geneve_inner_ip_acl_leaf_kern.o</p>
+    <p>leaf/xdp_geneve_inner_ip_acl_bitmatch_leaf_kern.o</p>
+    <p>leaf/xdp_geneve_inner_ip_acl_bitmatch2_leaf_kern.o</p>
+    <p>leaf/xdp_geneve_inner_ip_acl_bitmatch4_leaf_kern.o</p>
+
+    <p>leaf/tc_ip_acl_leaf_kern.o</p>
+    <p>leaf/tc_ip_acl_bitmatch_leaf_kern.o</p>
+    <p>leaf/tc_ip_acl_bitmatch2_leaf_kern.o</p>
+    <p>leaf/tc_ip_acl_bitmatch4_leaf_kern.o</p>
+    <p>leaf/tc_vxlan_inner_ip_acl_leaf_kern.o</p>
+    <p>leaf/tc_vxlan_inner_ip_acl_bitmatch_leaf_kern.o</p>
+    <p>leaf/tc_vxlan_inner_ip_acl_bitmatch2_leaf_kern.o</p>
+    <p>leaf/tc_vxlan_inner_ip_acl_bitmatch4_leaf_kern.o</p>
+    <p>leaf/tc_geneve_inner_ip_acl_leaf_kern.o</p>
+    <p>leaf/tc_geneve_inner_ip_acl_bitmatch_leaf_kern.o</p>
+    <p>leaf/tc_geneve_inner_ip_acl_bitmatch2_leaf_kern.o</p>
+    <p>leaf/tc_geneve_inner_ip_acl_bitmatch4_leaf_kern.o</p>
+
+    <h2>控制程序</h2>
+    <p>leaf/mgw-acl</p>
+    <p>leaf/mgw-acl-bitmatch</p>
+    <p>leaf/mgw-acl-bitmatch2</p>
+    <p>leaf/mgw-acl-bitmatch4</p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_ip_acl_leaf"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>设备门禁</h1>
+    <p class="indent"> 设备门禁是一种强力的安全访问措施。传统的黑白名单方式不能应对访问者是动态IP的情况, 这种情况下, 设备门禁和敲门协议可以满足用户的安全需求。</p>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "公网服务-设备门禁"。</p>
+    <img src="img/public_service/dev_door_1.png" height="400">
+    <p>
+        <li>启用后, 只要是通过公网访问的请求都会受到门禁系统的管制。</li>
+        <li>持有门禁密码的访问者, 需要通过 https://公网节点:2 打开访问权限后, 其所在的网络才会开通和内网的连接通道。</li>
+        <li>不需要同网络内的所有访问者纷纷开通权限, 仅需管理员开启即可. 比如用于分支机构: 分支机构管理员开通权限后, 则分支机构网络内部所有人都可以访问内网服务。</li>
+        <li>管理员需要持续维持访问权限的开启, 长时间不维持开启, 则访问权限自动关闭。</li>
+    </p>
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>
+xnetc-view>public-service door 123456
+xnetc-view>public-service door-on WIP
+xnetc-view>no public-service door
+xnetc-view>no public-service door-on
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=360>public-service door %PASSWORD</td> <td>配置门禁密码为%PASSWORD, 例如: 123456</td> </tr>
+            <tr> <td>public-service door-on %SELECT </td> <td> 门禁作用在什么功能上
+<pre>
+T: 用于整个隧道
+I: 用于动态设备映射
+P: 用于端口映射
+W: 用于WEB域名映射
+M: 用于Windows远程桌面
+</pre>
+            </td> </tr>
+            <tr> <td width=360>no public-service door </td> <td>取消门禁密码</td> </tr>
+            <tr> <td>no public-service door-on </td> <td>取消门禁的所有功能</td> </tr>
+        </tbody>
+    </table>
+
+    <h2>敲门协议</h2>
+    <p>输入门禁密码后, 选择门禁作用于哪些功能, 点击确定后开启门禁功能</p>
+    <p>访问者使用浏览器访问: https://公网节点IP或者域名:2, 点击"去开启门禁"</p>
+    <img src="img/public_service/dev_door_2.png" height="300">
+    <img src="img/public_service/dev_door_3.png" height="300">
+    <p>输入您的 "用户ID" (注册用户可以输入用户名) 和 "设备名" 以及 "门禁密码" 后点击 "开启门禁" 按钮</p>
+    <p>
+        <li>此页面会定期自动刷新以持续保持门禁权限的开启。</li>
+        <li>当管理员关闭门禁权限时, 所有连接立即中断, 门禁系统会禁止访问者所在网络内所有人的访问。</li>
+        <li>当管理员机器休眠或者管理员关闭此页面后, 门禁权限的会在一段时间后自动关闭访问权限。</li>
+    </p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "dev_door"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

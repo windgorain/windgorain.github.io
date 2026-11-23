@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>TCP端口映射</h1>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "公网服务-端口映射"。</p>
+    <p>点击"新建", 添加一个端口映射</p>
+    <img src="img/public_service/port_map_1.png" height="180">
+
+    <p><strong>说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=100>名称</td> <td>本条映射规则的名称</td> </tr>
+            <tr> <td>密码</td> <td>系统随机生成初始默认密码, 建议将其改为自己的密码</td> </tr>
+            <tr> <td>目标主机</td> <td>目标主机名或IP</td> </tr>
+            <tr> <td>目标端口</td> <td>目标主机的服务端口号。例如ssh为22, Windows远程桌面为3389</td> </tr>
+        </tbody>
+    </table>
+
+    <p>配置完成后, 点击"确定"提交配置, 跳转到如下界面:</p>
+    <img src="img/public_service/port_map_2.png" height="300">
+    <p>
+        图中"公网映射"的IP:Port即为映射后的公网IP和端口.
+        此时用户可以在公网访问此服务, 例如访问此ssh:
+<pre>
+ssh r1.xnet9.top -p 33767
+</pre>
+    </p>
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>
+xnetc-view>public-service tcp ssh localhost:22 -e
+xnetc-view>show public-service tcp
+    Name:ssh,Target:localhost,Target_Port:22,PublicService:17.178.124.20:46683,Enbale:1
+xnetc-view>no public-service tcp ssh
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=360> public-service tcp %NAME %TARGET %OPTION </td> <td>配置一条TCP域名映射<br>
+<pre>
+%NAME                规则名称, 例如: ssh
+%TARGET              目标地址和端口, 例如: localhost:22
+选项: -e --enable     使能规则
+</pre></td> </tr>
+            <tr><td>show public-service tcp</td><td>显示TCP端口映射列表 </td></tr>
+            <tr><td>no public-service tcp %NAME</td><td> 删除名称为%NAME的TCP端口映射规则 </td></tr>
+        </tbody>
+    </table>
+
+    <h2>注意事项</h2>
+    <p class="note">
+        如果端口号为0, 则表示服务器正在为其分配端口号, 稍等后重新刷新或查看, 即可看到分配后的端口号
+    </p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "tcp_port_map"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

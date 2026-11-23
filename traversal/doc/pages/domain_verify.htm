@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>域名所有权验证</h1>
+
+    <p>配置路径: "公网服务-域名所有权验证"。</p>
+    <p>此功能用于确认自定义域名是否由用户所拥有。</p>
+    <img src="img/public_service/domain_verify_1.png" height="250">
+    <p>点击"新建", 可以添加自定义的域名</p>
+    <p>点击"所有权验证", 配置验证规则, 需要按照如下图的提示在域名服务商处配置一条TXT记录</p>
+    <img src="img/public_service/domain_verify_2.png" height="180">
+
+    <p class="note">
+        注意: 系统会定期验证域名是否还被用户所拥有, 验证失败则此域名不可使用
+    </p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "domain_verify"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

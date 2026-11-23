@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>detach all-instance</h1>
+
+    <p> 解关联指定实例的所有下游实例</p>
+    <p>命令格式: sudo ./mgwtool detach all-instance -t 目标实例 </p>
+    <p>示例: </p>
+<pre><p class="code">$ sudo ./mgwtool tree instance
+c1
+├── p1
+└── p2
+
+$ sudo ./mgwtool detach all-instance -t c1
+$ sudo ./mgwtool tree instance
+c1
+p1
+p2
+</p></pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "detach_all_instance"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

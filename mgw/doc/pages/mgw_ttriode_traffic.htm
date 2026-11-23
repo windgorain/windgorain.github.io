@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>ttriode_traffic</h1>
+
+    <h2>中文名</h2>
+    <p>透明三极管流量控制器</p>
+    <h2>作用</h2>
+    <li>slot 0返回PASS, 则调用slot 1并返回slot 1的返回值</li>
+    <li>slot 0返回其他值, 则立即返回此返回值, 不再调用slot 1</li>
+    <h2>MGW文件</h2>
+    <p>traffic/xdp_ttriode_traffic_kern.o</p>
+    <p>traffic/tc_ttriode_traffic_kern.o</p>
+    <h2>控制程序</h2>
+    <p>无</p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_ttriode_traffic"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

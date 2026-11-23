@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>url_filter_leaf</h1>
+
+    <h2>中文名</h2>
+    <p>URL过滤器</p>
+    <h2>作用</h2>
+    <p>对报文/内层报文携带的HTTP/SSL头中的域名做过滤</p>
+    <h2>需求</h2>
+    <p>需要KLC环境支持</p>
+    <h2>MGW文件</h2>
+    <p>leaf/xdp_url_filter_leaf_klc.o</p>
+    <p>leaf/xdp_vxlan_inner_url_filter_leaf_klc.o</p>
+    <p>leaf/xdp_geneve_inner_url_filter_leaf_klc.o</p>
+    <p>leaf/tc_url_filter_leaf_klc.o</p>
+    <p>leaf/tc_vxlan_inner_url_filter_leaf_klc.o</p>
+    <p>leaf/tc_geneve_inner_url_filter_leaf_klc.o</p>
+
+    <h2>控制程序</h2>
+    <p>leaf/mgw-urlfilter</p>
+
+    <h2>注意</h2>
+    <p>白名单优先级高于黑名单, 如果一个域名在黑白名单中都存在, 则会优先匹配到白名单。</p>
+
+    <h2>示例脚本</h2>
+<pre><p class="code">
+#/bin/bash
+#文件名称: xdp_url_filter.sh
+#使用方法: ./xdp_url_filter.sh 接口
+#使用示例: ./xdp_url_filter.sh eth0
+#终止脚本: Ctrl+C
+
+IF_NAME=eth0
+if [ "$1" ];then
+    IF_NAME=$1
+fi
+
+#加载 url filter
+./mgwtool load instance -n u1 -f leaf/xdp_url_filter_leaf_klc.o
+#关联到接口
+./mgwtool attach xdp -n u1 -t ${IF_NAME} -p mgw_input
+
+#添加黑白名单, 允许www.baidu.com的报文, 禁止*.baidu.com的报文
+./leaf/mgw-urlfilter add -n u1 -l whitelist -H www.baidu.com
+./leaf/mgw-urlfilter add -n u1 -l blacklist -H *.baidu.com
+
+./mgwtool enable all
+
+trap finish INT
+finish () {
+    echo ""
+    echo "quit..."
+    #从接口解除关联
+    ./mgwtool deta xdp -t ${IF_NAME}
+    #卸载所有instance
+    ./mgwtool unload all-instance
+    exit
+}
+
+sleep infinity
+
+</p></pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_url_filter_leaf"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

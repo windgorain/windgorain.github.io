@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>地址组</h1>
+    <p>地址组可以将多个IP地址定义为一个组, 以方便ACL规则引用, 避免配置很多条ACL. 例如用此功能配合IPACL实现黑白名单。 </p>
+    <p>配置路径: "ACL-地址组" </p>
+
+    <img src="img/acl/ip_group_1.png" height="300">
+
+    <p> 系统默认存在两个地址组, 分别用于黑名单和白名单 </p>
+    <p>点击规则名, 可编辑地址组 </p>
+    <p>点击"新建", 可新建一个地址组 </p>
+
+    <img src="img/acl/ip_group_2.png" height="100">
+
+    <p> 输入地址组名称后点击下一步, 进入地址规则编辑页面 </p>
+
+    <img src="img/acl/ip_group_3.png" height="240">
+    <p> 点击新建按钮可添加一个地址段 </p>
+    <img src="img/acl/ip_group_4.png" height="120">
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "ip_group"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

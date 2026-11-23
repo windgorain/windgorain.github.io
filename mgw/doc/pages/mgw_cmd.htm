@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>MGW命令</h1>
+
+    <h2>mgwtool 命令</h2>
+    <p>
+<pre>
+./mgwtool
+Commands:
+ version                             - show version
+ tree instance                       - show instance tree
+ show instance                       - show instance
+ show statics                        - show instance statics
+ show attr                           - show instance attr
+ show slot                           - show instance slot
+ show vslot                          - show instance vslot
+ load instance                       - load instance
+ unload instance                     - unload instance
+ unload all-instance                 - unload all instance
+ attach xdp                          - attach to xdp
+ detach xdp                          - detach from xdp
+ attach tc                           - attach to tc
+ attach instance                     - attach to instance
+ detach instance                     - detach from instance
+ detach all-instance                 - detach all from instance
+ enable instance                     - enable instance
+ disable instance                    - disable instance
+ enable all                          - enable all instance
+ disable all                         - disable all instance
+</pre>
+    </p>
+
+    <h2>命令说明</h2>
+    <table>
+        <tr><td width=300px>mgwtool version</td><td>显示mgwtool版本号</td></tr>
+        <tr><td>mgwtool tree instance</td><td>显示实例之间的关联关系</td></tr>
+        <tr><td>mgwtool show instance</td><td>显示当前加载的实例</td></tr>
+        <tr><td>mgwtool show statics</td><td>显示实例的统计信息</td></tr>
+        <tr><td>mgwtool show attr</td><td>显示实例属性</td></tr>
+        <tr><td>mgwtool show slot</td><td>显示实例的插槽信息</td></tr>
+        <tr><td>mgwtool show vslot</td><td>显示实例的虚拟插槽信息</td></tr>
+        <tr><td>mgwtool load instance</td><td>从指定文件加载一个实例</td></tr>
+        <tr><td>mgwtool unload instance</td><td>卸载一个实例</td></tr>
+        <tr><td>mgwtool unload all-instance </td><td>卸载所有实例</td></tr>
+        <tr><td>mgwtool attach xdp </td><td>将实例关联到接口的XDP入口</td></tr>
+        <tr><td>mgwtool detach xdp </td><td>从接口解关联XDP</td></tr>
+        <tr><td>mgwtool attach tc </td><td>将实例关联到接口的TC入口</td></tr>
+        <tr><td>mgwtool attach instance </td><td>将实例关联到上游实例</td></tr>
+        <tr><td>mgwtool detach instance </td><td>将实例从上游实例解除关联</td></tr>
+        <tr><td>mgwtool detach all-instance </td><td>解关联指定实例的所有下游实例</td></tr>
+        <tr><td>mgwtool enable instance</td><td>使指定实例开始工作</td></tr>
+        <tr><td>mgwtool disable instance</td><td>使指定实例停止工作</td></tr>
+        <tr><td>mgwtool enable all</td><td>开始所有实例的工作</td></tr>
+        <tr><td>mgwtool disable all</td><td>停止所有实例的工作</td></tr>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_cmd"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

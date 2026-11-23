@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>MGW组件类型</h1>
+    <p> MGW组件分为Cluster、Traffic、Pipe、Leaf四种不同类型</p>
+
+    <h2>Cluster类型</h2>
+    <p> 对报文进行Hash，根据Hash结果和权重将流量分发给下游不同组件。 </p>
+
+    <h2>Traffic类型</h2>
+    <p> 对流量进行调度，根据规则，将不同流量分发给下游不同组件。</p>
+
+    <h2>Pipe类型</h2>
+    <p> 对流量进行预处理和后处理，并将报文传递给下游组件。</p>
+
+    <h2>Leaf类型</h2>
+    <p> 对流量做最终处理，无下游组件。</p>
+
+    <!-- ========== 上一篇/下一篇导航（每个子页面都需要复制这一段） ========== -->
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <!-- <div class="nav-home"><a class="nav-link" onclick="goHome()">🏠 首页</a></div> -->
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_class"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

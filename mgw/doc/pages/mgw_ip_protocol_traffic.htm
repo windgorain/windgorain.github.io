@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>ip_protocol_traffic</h1>
+
+    <h2>作用</h2>
+    <p>根据 IP协议号/内存报文IP协议号 进行流量导流</p>
+    <h2>MGW文件</h2>
+    <p>traffic/xdp_ip_protocol_traffic_kern.o</p>
+    <p>traffic/xdp_vxlan_inner_ip_protocol_traffic_kern.o</p>
+    <p>traffic/xdp_geneve_inner_ip_protocol_traffic_kern.o</p>
+    <p>traffic/tc_ip_protocol_traffic_kern.o</p>
+    <p>traffic/tc_vxlan_inner_ip_protocol_traffic_kern.o</p>
+    <p>traffic/tc_geneve_inner_ip_protocol_traffic_kern.o</p>
+    <h2>控制程序</h2>
+    <p>traffic/mgw-ipprotocol-traffic </p>
+    <h2>示例脚本</h2>
+<pre><p class="code">
+#/bin/bash
+#文件名称: xdp_ip_protocol_traffic.sh
+#使用方法: ./xdp_ip_protocol_traffic.sh 接口
+#使用示例: ./xdp_ip_protocol_traffic.sh eth0
+#终止脚本: Ctrl+C
+
+IF_NAME=eth0
+if [ "$1" ];then
+    IF_NAME=$1
+fi
+
+#加载 xdp ip traffic
+./mgwtool load instance -n t1 -f traffic/xdp_ip_protocol_traffic_kern.o
+#加载 xdp ip printer
+./mgwtool load instance -n p1 -f leaf/xdp_ip_printer_leaf_kern.o
+./mgwtool load instance -n p2 -f leaf/xdp_ip_printer_leaf_kern.o
+#将t1关联到接口
+./mgwtool attach xdp -n t1 -t ${IF_NAME} -p mgw_input
+#将p1/p2关联到t1的slot 6/17, 这两个slot分别对应tcp/udp
+./mgwtool attach instance -n p1 -t t1 -p mgw_input -s 6
+./mgwtool attach instance -n p2 -t t1 -p mgw_input -s 17
+#为t1添加导流规则: 将流量分别导流向slot 6/17
+./traffic/mgw-ipprotocol-traffic add rule -n t1 -p 6    #开启TCP导流
+./traffic/mgw-ipprotocol-traffic add rule -n t1 -p 17   #开启UDP导流
+
+./mgwtool enable all
+
+trap finish INT
+finish () {
+    echo ""
+    echo "quit..."
+    #从接口解除关联
+    ./mgwtool detach xdp -t ${IF_NAME} 
+    #卸载所有instance
+    ./mgwtool unload all-instance
+    exit
+}
+
+cat /sys/kernel/debug/tracing/trace_pipe
+
+</p></pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_ip_protocol_traffic"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

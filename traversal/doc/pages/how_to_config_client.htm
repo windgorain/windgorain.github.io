@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>如何配置客户端</h1>
+
+    <h2>WEB配置方式</h2>
+
+    <p>通过浏览器访问 http://localhost:8888 ，输入管理员/密码后，进入管理页面</p>
+    <p class="note">默认管理员/密码均为 admin ，请尽快到"WEB管理-WEB管理员"界面修改密码 </p>
+    <p> 页面展示如下: </p>
+    <img src="img/base_config/status_1.png" height="300">
+    <p>说明：左侧是导航栏，可以点击不同项目进行不同的配置。 右侧展示配置的内容 </p>
+    <p>点击"系统设置-关闭系统"中的"关闭系统"按钮，可以关闭VNMesh服务：</p>
+    <img src="img/sys/sys_exit_1.png" height="300">
+
+    <h2>Telnet配置方式</h2>
+    <p>可以通过Telnet访问系统，进行交互式命令配置: </p>
+<pre>telnet localhost 2300
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+user-view>config-view
+config-view>xnetc-view
+xnetc-view>show this
+</pre>
+    <p>如上所示，telnet成功后，输入 config-view 和 xnetc-view 后可以进入xnetc配置视图，输入 show this 可以显示当前配置，输入 ? 可以显示帮助信息，输入 tab 可以补全命令。</p>
+    <p>可以在命令行界面进行配置，例如配置用户名/密码: </p>
+<pre>xnetc-view>user example   
+xnetc-view>password simple 123456
+</pre>
+    <p>可以使用命令行进入sys-view，关闭vnmesh进程: </p>
+<pre>user-view>config-view
+config-view>sys-view
+sys-view>sys exit
+...退出vnmesh
+</pre>
+
+    <h2>启动vnmesh时选择前台运行进行配置</h2>
+<pre>./vnmesh -c
+user-view>config-view
+config-view>xnetc-view
+xnetc-view>user example
+xnetc-view>password simple 123456
+xnetc-view>quit
+config-view>quit
+user-view>quit
+Quit the app? y/n:y
+...退出vnmesh
+
+./vnmesh -d
+...以后台方式启动vnmesh，加载刚刚的配置
+</pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "how_to_config_client"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

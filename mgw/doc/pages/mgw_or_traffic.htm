@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>or_traffic</h1>
+
+    <h2>中文名</h2>
+    <p>或门控制器</p>
+    <h2>作用</h2>
+    <p>按slot顺序遍历调用下游实例, 如果某下游实例返回值不是DROP, 则终止遍历并立即返回此返回值。如果所有下游实例都返回DROP, 则返回DROP。</p>
+    <h2>MGW文件</h2>
+    <p>traffic/xdp_or_traffic_kern.o</p>
+    <p>traffic/tc_or_traffic_kern.o</p>
+    <h2>控制程序</h2>
+    <p>无</p>
+    <h2>示例脚本</h2>
+<pre><p class="code">
+#/bin/bash
+#文件名称: xdp_or_traffic.sh
+#使用方法: ./xdp_or_traffic.sh 接口
+#使用示例: ./xdp_or_traffic.sh eth0
+#终止脚本: Ctrl+C
+
+IF_NAME=eth0
+if [ "$1" ];then
+    IF_NAME=$1
+fi
+
+#加载 xdp or traffic
+./mgwtool load instance -n t1 -f traffic/xdp_or_traffic_kern.o
+#加载 xdp ip printer
+./mgwtool load instance -n p1 -f leaf/xdp_ip_printer_leaf_kern.o
+./mgwtool load instance -n p2 -f leaf/xdp_ip_printer_leaf_kern.o
+#将t1关联到接口
+./mgwtool attach xdp -n t1 -t ${IF_NAME} -p mgw_input
+#将p1/p2关联到t1, 不指定slot则自动分配
+./mgwtool attach instance -n p1 -t t1 -p mgw_input
+./mgwtool attach instance -n p2 -t t1 -p mgw_input
+
+./mgwtool enable all
+
+trap finish INT
+finish () {
+    echo ""
+    echo "quit..."
+    #从接口解除关联
+    ./mgwtool deta xdp -t ${IF_NAME}
+    #卸载所有instance
+    ./mgwtool unload all-instance
+    exit
+}
+
+cat /sys/kernel/debug/tracing/trace_pipe
+
+</p></pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_or_traffic"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

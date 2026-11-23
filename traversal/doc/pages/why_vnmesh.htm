@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>为什么开发VNMesh</h1>
+    <p class="indent"> 
+    业界已经存在一些内网穿透方案，如FRP、Ngrok等，那么我们为什么还需要再做一款新的内网穿透的方案呢。
+    </p>
+    <h2>传统方案的限制</h2>
+    <p class="indent"> 传统的内网穿透服务，都有端口映射数量、连接数目限制，只能满足轻量使用，只要服务数量或连接数量增长到一定程度，就会被拒绝服务。即便是充值到高级会员，资源数目只是稍微多那么一点，还是有很大限制，无法从根本上满足用户需求。</p>
+    <h3>资源数量限制</h3>
+    <p class="indent">
+        以TCP端口映射为例，用户需要将本地服务映射到公网转发节点的一个公开TCP端口上，而服务器端口数量有限，最多65535个，这是TCP/IP协议的上限。但这65535个端口不能都拿来给用户分配，因为服务器本身还需要占用一些端口号，能拿来分配给用户的端口号数量极其有限。这就是为什么传统服务商只能为每个用户提供很少量的TCP端口映射的原因。资源就这么点，用户却非常多，自然会限制端口映射的申请数量。
+    </p>
+    <h3>连接数量限制</h3>
+    <p class="indent">
+        传统的内网穿透服务通常只有几条几十条的连接上限，即便是付费，连接数量也不会很多，只够轻度使用，只要业务量一上来，连接数目完全不够用的。这些限制的根本原因是什么呢？ 每个公网服务器节点的资源是固定的，维持连接需要实实在在的消耗：
+        <li>内存是最大瓶颈：每个TCP连接都需要内存来维持状态、协议栈缓冲区和会话信息。一个连接可能消耗几KB到几十KB。如果支持1万个并发，单是连接状态就可能消耗几百MB甚至GB级内存，成本很高。</li>
+        <li>CPU消耗不容忽视：高并发下，CPU主要忙于处理数据处理、系统调用（epoll/kqueue事件循环）和上下文切换。当数千个连接并发传输数据时，CPU使用率会飙升，导致响应变慢。</li>
+        <li>文件描述符上限：每个连接都是一个“文件”，操作系统对进程能打开的文件描述符数量有限制，虽然可以调高，但太高也会影响系统稳定性。 </li>
+    </p>
+    <p class="indent">
+        这些限制决定了传统的内网穿透服务不会给用户分配太多的连接数量。
+    </p>
+
+    <h3>性能限制</h3>
+    <p class="indent">
+        相当多的方案采用了Golang作为开发语言，其最大优势是开发简单、单体程序部署容易。然而Golang是一种带有GC的语言，这就使得其性能非常受限，通常表现在:
+        <li> 内存瓶颈: Golang编写的复杂程序一般要比C/Rust语言编写的程序要占用更多内存，而其GC特性，也使得其内存回收非常慢，在长时间大压力的使用情况下，内存会持续增长。在一些小内存的设备上，会很快的达到其内存瓶颈，出现服务不稳定的现象。</li>
+        <li> 性能瓶颈: 在复杂的应用场景，Golang的性能大概是C语言的五分之一，这意味着其处理大量连接和大量请求的能力会受限。在一些大压力的场景，需要五倍数量的设备才能达到业务需求。</li>
+    </p>
+
+    <h2>VNMesh则致力于解决这些问题</h2>
+
+    <!-- ========== 上一篇/下一篇导航（每个子页面都需要复制这一段） ========== -->
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <!-- <div class="nav-home"><a class="nav-link" onclick="goHome()">🏠 首页</a></div> -->
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "why_vnmesh"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

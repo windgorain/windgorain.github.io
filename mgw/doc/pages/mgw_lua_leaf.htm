@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>lua_leaf</h1>
+
+    <h2>作用</h2>
+    <p>执行Lua脚本</p>
+    <h2>需求</h2>
+    <p>需要KLC环境支持</p>
+    <h2>MGW文件</h2>
+    <p>leaf/xdp_lua_leaf_klc.o</p>
+    <p>leaf/tc_lua_leaf_klc.o</p>
+    <h2>控制程序</h2>
+    <p>leaf/mgw-lua</p>
+
+    <h2>示例脚本</h2>
+
+<pre><p class="code">
+#/bin/bash
+#文件名称: xdp_lua.sh
+#使用方法: ./xdp_lua.sh 接口
+#使用示例: ./xdp_lua.sh eth0
+#加载lua: ./klctool load spf lua5.3.spf
+#终止脚本: Ctrl+C
+
+IF_NAME=eth0
+if [ "$1" ];then
+    IF_NAME=$1
+fi
+
+#加载mgw 
+./mgwtool load instance -n lua1 -f leaf/xdp_lua_leaf_kern.o
+
+#将n1关联到接口
+./mgwtool attach xdp -n lua1 -t ${IF_NAME} -p mgw_input
+
+./mgwtool enable all
+
+trap finish INT
+finish () {
+    echo ""
+    echo "quit..."
+    #从接口解除关联
+    ./mgwtool deta xdp -t ${IF_NAME} 
+    #卸载所有instance
+    ./mgwtool unload all-instance
+    exit
+}
+
+sudo ./leaf/mgw-lua load file -n lua1 -f useage_example/luamgw_test.lua
+
+cat /sys/kernel/debug/tracing/trace_pipe
+
+</p></pre>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_lua_leaf"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

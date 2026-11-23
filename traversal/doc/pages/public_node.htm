@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>公网节点</h1>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "公网服务-公网节点" </p>
+    <img src="img/public_service/public_node_1.png" height="250">
+    <p><strong>这里会显示可用的公网节点</strong></p>
+    <p>
+        <li>系统通常会分配多个公网节点给用户, 以实现公网节点的故障容灾. 这保证了任何一台公网节点故障后, 用户仍可访问公网服务.</li>
+        <li>公网域名映射会向所有公网节点同时注册域名, 用户可以通过任何一个公网节点访问(前提是此公网节点有域名, 或者用户自行将域名解析地址指向它).</li>
+        <li>公网端口映射功能通常会选择其中一个公网节点做映射, 如果此公网节点故障, 系统会自动选择另外一个公网节点重新进行端口映射, 此时映射端口可能会产生变化.</li>
+    </p>
+</p>
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>xnetc-view>show pnt
+ ip:115.190.183.41, port:1.2.1, name:Beijing1, pos:Beijing, bandwidth:1, domain:, self:0
+ ip:39.103.49.122, port:1.2.1, name:Beijing2, pos:Beijing, bandwidth:3, domain:r1.vnmesh.com, self:0
+ ip:6.6.6.6, port:1.2.1, name:SelfServer, pos:Beijing, bandwidth:10, domain:r1.myself.com, self:1
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=260>show pnt</td> <td>显示公网节点<br>
+            ip: 公网节点的IP<br>
+            port: 公网节点的服务端口<br>
+            name: 公网节点的名称<br>
+            pos: 公网节点的地理位置<br>
+            bandwidth: 公网节点的带宽<br>
+            domain: 公网节点的域名<br>
+            self: 是否自建服务器。 0: 共享服务器; 1: 自建服务器<br>
+            </td> </tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "public_node"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

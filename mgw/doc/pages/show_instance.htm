@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>show instance</h1>
+
+    <p>显示实例信息</p>
+    <p>命令格式: sudo ./mgwtool show instance</p>
+    <p>示例: </p>
+<pre><p class="code">$ sudo ./mgwtool show instance
+ instance:acl, mgw:ip_acl, class:leaf, in:xdp, out:none, enable:1
+ instance:xdpevent, mgw:xdp_event, class:leaf, in:xdp, out:none, enable:1
+ instance:ttriode, mgw:ttriode, class:traffic, in:xdp, out:xdp, enable:1
+</p></pre>
+
+    <h2>显示说明</h2>
+    <table>
+        <tr><td width=100px>instance</td><td>实例名</td></tr>
+        <tr><td>mgw</td><td>MGW名</td></tr>
+        <tr><td>class</td><td>MGW类别: traffic/cluster/pipe/leaf</td></tr>
+        <tr><td>in</td><td>入口类型</td></tr>
+        <tr><td>out</td><td>出口类型</td></tr>
+        <tr><td>enable</td><td>是否使能. 0: 停止工作; 1: 正在工作</td></tr>
+    </table>
+
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "show_instance"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

@@ -1,82 +1,88 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>xnet</title>
+    <meta name="description" content="VNMesh是一组网络互联工具, 包含安全的内网穿透, 内核编排等工具。无需公网IP，快速发布应用到公网。" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="vnmesh官网-网络互联工具| 无需公网ip | 远程访问 | 搭建网站 | 内核编排" />
+    <meta property="og:description" content="vnmeshVNMesh是一组网络互联工具, 包含安全的内网穿透工具、内核编排工具。无需公网IP，快速发布应用到公网。" />
 
-   
-<link rel="stylesheet" type="text/css" href="/css/base.css">
-<link rel="stylesheet" type="text/css" href="/css/container.css">
-<link rel="stylesheet" type="text/css" href="/js/my/toolbar/toolbar.css">
-
-<script src="/js/jquery/jquery.js"></script>
-<script src="/js/my/copyright.js"></script>
-<script src="/js/my/string/string.js"></script>
-<script src="/js/my/toolbar/toolbar.js"></script>
-
+    <title>VNMesh - 专业网络互联解决方案 | 内网穿透 | 内核编排 | 无需公网IP | 远程访问 | 搭建网站 </title>
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/grid.css">
 </head>
-
 <body>
+   <div id="toolbar"></div>
+   <script src="/js/toolbar.js"></script>
 
-<!-- TopBar Begin -->
-<!--
-<div class="TopBar">
-	<img width="10" class="Logo" src="/img/logo.jpg" />
-</div>
--->
-<!-- TopBar End -->
+   <!-- 英雄区域 -->
+   <section class="hero">
+       <div class="container">
+           <div class="hero-content">
+               <h1>云汀<span>创新</span>实验室</h1>
+               <h2>Virtual Network Mesh</h2>
+           </div>
+       </div>
+   </section>
 
-<!-- ToolBar Begin -->
-<script> var menu_current_page = "首页"; </script>
-<script src="menu.js"></script>
-<!-- ToolBar End -->
 
-<!-- container Begin -->
-<div class="Container">
+    <section class="container">
+        <div class="section-title">
+            <h2>产品中心</h2>
+        </div>
 
-    <a href="mgw/index.htm">
-	<div class="Container-Block">
-		<div class="Title">MGW系统</div>
-		<div class="Content">
-			微网关系统, 采用ebpf技术, 在内核方便的编排各种微型网关组件
-		</div>
-	</div>
-    </a>
+        <div class="grids">
+            <a href="traversal/index.htm" style="text-decoration: none;">
+            <div class="grid-card termux moveup">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div>
+                        <h3>内网穿透</h3>
+                        <p>无需公网IP, 快速发布应用到公网</p>
+                    </div>
+                </div>
+            </div>
+            </a>
 
-    <a href="spf/index.htm">
-	<div class="Container-Block" style="width:300px" >
-		<div class="Title">SPF系统</div>
-		<div class="Content">
-            一款轻量的运行时
-		</div>
-	</div>
-    </a>
+            <a href="mgw/index.htm" style="text-decoration: none;">
+            <div class="grid-card windows moveup">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-arrows-alt"></i>
+                    </div>
+                    <div>
+                        <h3>MGW内核编排系统</h3>
+                        <p>无需开发, 像搭建积木一样组建内核功能</p>
+                    </div>
+                </div>
+            </div>
+            </a>
 
-    <a href="klc/index.htm">
-	<div class="Container-Block" style="width:300px" >
-		<div class="Title">KLC系统</div>
-		<div class="Content">
-            内核级别环境(Kernel Level Content), 用于支撑SPF文件在内核运行
-		</div>
-	</div>
-    </a>
+            <a href="klc/index.htm" style="text-decoration: none;">
+            <div class="grid-card windows moveup">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-arrows-alt"></i>
+                    </div>
+                    <div>
+                        <h3>KLC内核可编程</h3>
+                        <p>简洁灵活的内核可编程环境</p>
+                    </div>
+                </div>
+            </div>
+            </a>
 
-    <a href="xnets/index.htm">
-	<div class="Container-Block" style="width:300px" >
-		<div class="Title">Xnets系统</div>
-		<div class="Content">
-            用于内网穿透, 可以在各地组建自己的VPC, 并将服务映射到公网
-		</div>
-	</div>
-    </a>
+        </div>
 
-</div>
-<!-- container End -->
+   </section>
 
-<div id="copyright"></div>
+   <div id="footbar"></div> <script src="/js/footbar.js"></script>
+   <div id="copyright"></div> <script src="/js/copyright.js"></script>
+   <script src="/js/base.js"></script>
 
 </body>
-
 </html>
-

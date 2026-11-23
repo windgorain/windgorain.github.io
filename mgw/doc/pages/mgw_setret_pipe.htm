@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>setret_pipe</h1>
+
+    <h2>作用</h2>
+    <li>通过pipe/mgw-setret设置返回给上游的返回值</li>
+    <li>如果下游实例返回PASS或DROP, 则给上游实例返回预先设置好的返回值</li>
+    <li>如果下游实例返回其他值, 则将其返回给上游实例</li>
+    <h2>MGW文件</h2>
+    <p>pipe/xdp_setret_pipe_kern.o</p>
+    <p>pipe/tc_setret_pipe_kern.o</p>
+    <h2>控制程序</h2>
+    <p>pipe/mgw-setret</p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "mgw_setret_pipe"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

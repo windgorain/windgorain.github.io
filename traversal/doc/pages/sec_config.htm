@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>安全配置</h1>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "基础配置-安全配置" </p>
+    <img src="img/base_config/sec_config_1.png" height="200">
+    <p><strong>说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=100>黑名单</td> <td> 黑名单开启后, 在黑名单内的源IP, 会被拒绝访问(即使其在白名单内也会被拒绝) </td> </tr>
+            <tr> <td>白名单</td> <td> 白名单开启后, 不在白名单内的源IP, 会被拒绝访问 </td> </tr>
+            <tr> <td>白名单</td> <td> 权限控制列表, 可以更精细的控制访问权限 </td> </tr>
+        </tbody>
+    </table>
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>xnetc-view>blacklist enable
+xnetc-view>whitelist enable
+xnetc-view>acl enable
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=260>[no] blacklist enable</td> <td>关闭/开启黑名单</td> </tr>
+            <tr> <td>[no] whitelist enable</td> <td>关闭/开启白名单</td> </tr>
+            <tr> <td>[no] acl enable</td> <td>关闭/开启ACL</td> </tr>
+        </tbody>
+    </table>
+
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "sec_config"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

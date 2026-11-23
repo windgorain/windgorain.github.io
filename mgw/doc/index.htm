@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · VNMesh MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/doc.css">
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <div class="logo"> MGW 文档中心</div>
+        <ul class="tree" id="navTree"></ul>
+        <div style="padding: 1rem; font-size: 0.7rem; color: #7c8ea0; border-top: 1px solid #edf2f7; margin-top: 1rem;">
+         MGW文档中心
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="content-area" id="contentArea">
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <span style="margin-left: 10px;">加载中...</span>
+            </div>
+        </div>
+        <div class="footer-note">
+            <p> <a href="https://beian.miit.gov.cn/" target="_blank" style="color: #94a3b8;"> 京ICP备2026017207号 </a> </p>
+            <p>&copy; 2026 VNMesh. 保留所有权利. </p>
+        </div>
+    </main>
+</div>
+
+<script>
+    const NAV_TREE = [
+        {
+            type: "folder", title: "MGW介绍", icon: "📂", defaultExpanded: true,
+            children: [
+                { type: "page", id: "what_is_mgw", title: "MGW是什么", icon: "📄" },
+                { type: "page", id: "mgw_class", title: "组件类型", icon: "📄" },
+            ]
+        },
+        {
+            type: "folder", title: "命令手册", icon: "📂", defaultExpanded: false,
+            children: [
+                { type: "page", id: "mgw_cmd", title: "mgw命令", icon: "📄" },
+                { type: "page", id: "tree_instance", title: "tree instance", icon: "📄" },
+                { type: "page", id: "show_instance", title: "show instance", icon: "📄" },
+                { type: "page", id: "show_statics", title: "show statics", icon: "📄" },
+                { type: "page", id: "show_attr", title: "show attr", icon: "📄" },
+                { type: "page", id: "show_slot", title: "show slot", icon: "📄" },
+                { type: "page", id: "show_vslot", title: "show vslot", icon: "📄" },
+                { type: "page", id: "load_instance", title: "load instance", icon: "📄" },
+                { type: "page", id: "unload_instance", title: "unload instance", icon: "📄" },
+                { type: "page", id: "unload_all_instance", title: "unload all-instance", icon: "📄" },
+                { type: "page", id: "attach_xdp", title: "attach xdp", icon: "📄" },
+                { type: "page", id: "detach_xdp", title: "detach xdp", icon: "📄" },
+                { type: "page", id: "attach_tc", title: "attach tc", icon: "📄" },
+                { type: "page", id: "attach_instance", title: "attach instance", icon: "📄" },
+                { type: "page", id: "detach_instance", title: "detach instance", icon: "📄" },
+                { type: "page", id: "detach_all_instance", title: "detach all-instance", icon: "📄" },
+                { type: "page", id: "enable_instance", title: "enable instance", icon: "📄" },
+                { type: "page", id: "disable_instance", title: "disable instance", icon: "📄" },
+                { type: "page", id: "enable_all", title: "enable all", icon: "📄" },
+                { type: "page", id: "disable_all", title: "disable all", icon: "📄" },
+            ]
+        },
+        {
+            type: "folder", title: "组件说明", icon: "📂", defaultExpanded: false,
+            children: [
+                { type: "folder", title: "cluster组件", icon: "📂", defaultExpanded: false,
+                    children: [
+                        { type: "page", id: "mgw_ip_cluster", title: "ip_cluster", icon: "📄" },
+                        { type: "page", id: "mgw_vni_cluster", title: "vni_cluster", icon: "📄" },
+                    ]
+                },
+                { type: "folder", title: "traffic组件", icon: "📂", defaultExpanded: false,
+                    children: [
+                        { type: "page", id: "mgw_sip_traffic", title: "sip_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_dip_traffic", title: "dip_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_sport_traffic", title: "sport_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_dport_traffic", title: "dport_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_ip_protocol_traffic", title: "ip_protocol_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_vni_traffic", title: "vni_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_and_traffic", title: "and_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_or_traffic", title: "or_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_cpu_traffic", title: "cpu_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_triode_traffic", title: "triode_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_ttriode_traffic", title: "ttriode_traffic", icon: "📄" },
+                        { type: "page", id: "mgw_flowmatch_traffic", title: "flowmatch_traffic", icon: "📄" },
+                    ]
+                },
+                { type: "folder", title: "pipe组件", icon: "📂", defaultExpanded: false,
+                    children: [
+                        { type: "page", id: "mgw_pass_pipe", title: "pass_pipe", icon: "📄" },
+                        { type: "page", id: "mgw_drop_pipe", title: "drop_pipe", icon: "📄" },
+                        { type: "page", id: "mgw_not_pipe", title: "not_pipe", icon: "📄" },
+                        { type: "page", id: "mgw_setret_pipe", title: "setret_pipe", icon: "📄" },
+                        { type: "page", id: "mgw_setdscp_pipe", title: "setdscp_pipe", icon: "📄" },
+                        { type: "page", id: "mgw_ppslimit_pipe", title: "ppslimit_pipe", icon: "📄" },
+                        { type: "page", id: "mgw_simple_encrypt_pipe", title: "simple_encrypt_pipe", icon: "📄" },
+                    ]
+                },
+                { type: "folder", title: "leaf组件", icon: "📂", defaultExpanded: false,
+                    children: [
+                        { type: "page", id: "mgw_ip_printer_leaf", title: "ip_printer_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_drop_leaf", title: "drop_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_drop_syn_leaf", title: "drop_syn_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_pass_syn_leaf", title: "pass_syn_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_ethtx_leaf", title: "ethtx_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_iptx_leaf", title: "iptx_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_setdscp_leaf", title: "setdscp_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_ip_acl_leaf", title: "ip_acl_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_url_filter_leaf", title: "url_filter_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_lua_leaf", title: "lua_leaf", icon: "📄" },
+                        { type: "page", id: "mgw_xdp_event_leaf", title: "xdp_event_leaf", icon: "📄" },
+                    ]
+                },
+            ]
+        },
+    ];
+
+    // ============================================================
+    // 构建扁平化页面列表（用于上一篇/下一篇）
+    // 深度优先遍历，按照显示顺序
+    // ============================================================
+    let flatPageList = [];
+
+    function traverseTree(nodes, result) {
+        for (const node of nodes) {
+            if (node.type === 'page') {
+                result.push({ id: node.id, title: node.title });
+            }
+            if (node.children && node.children.length > 0) {
+                traverseTree(node.children, result);
+            }
+        }
+    }
+
+    function buildFlatPageList() {
+        flatPageList = [];
+        traverseTree(NAV_TREE, flatPageList);
+        console.log('页面列表:', flatPageList.map(p => p.title));
+    }
+
+    // 渲染树形导航
+    function renderTree(nodes) {
+        let html = '';
+        for (const node of nodes) {
+            if (node.type === 'folder') {
+                const expandedClass = node.defaultExpanded ? 'expanded' : '';
+                const toggleIcon = node.defaultExpanded ? '▼' : '▶';
+                html += `<li class="folder ${expandedClass}" data-folder-id="${node.title}">`;
+                html += `<div class="node">`;
+                html += `<span class="toggle">${toggleIcon}</span>`;
+                html += `<span class="icon">${node.icon}</span>`;
+                html += `<span class="label">${node.title}</span>`;
+                html += `</div>`;
+                if (node.children && node.children.length) {
+                    html += `<ul>${renderTree(node.children)}</ul>`;
+                }
+                html += `</li>`;
+            } else if (node.type === 'page') {
+                html += `<li class="page" data-page="${node.id}">`;
+                html += `<div class="node">`;
+                html += `<span class="toggle" style="visibility:hidden">•</span>`;
+                html += `<span class="icon">${node.icon}</span>`;
+                html += `<span class="label">${node.title}</span>`;
+                html += `</div></li>`;
+            }
+        }
+        return html;
+    }
+
+    function bindTreeEvents() {
+        // 文件夹折叠/展开
+        document.querySelectorAll('.folder').forEach(folder => {
+            const nodeDiv = folder.querySelector(':scope > .node');
+            const toggleSpan = nodeDiv?.querySelector('.toggle');
+            
+            const toggleFolder = (e) => {
+                e?.stopPropagation();
+                const isExpanded = folder.classList.contains('expanded');
+                if (isExpanded) {
+                    folder.classList.remove('expanded');
+                    if (toggleSpan) toggleSpan.textContent = '▶';
+                } else {
+                    folder.classList.add('expanded');
+                    if (toggleSpan) toggleSpan.textContent = '▼';
+                }
+                // 保存状态
+                const key = folder.getAttribute('data-folder-id');
+                if (key) {
+                    const saved = JSON.parse(localStorage.getItem('treeState') || '{}');
+                    saved[key] = !isExpanded;
+                    localStorage.setItem('treeState', JSON.stringify(saved));
+                }
+            };
+            
+            if (nodeDiv) nodeDiv.addEventListener('click', toggleFolder);
+            if (toggleSpan) toggleSpan.addEventListener('click', toggleFolder);
+        });
+        
+        // 恢复保存的折叠状态
+        const savedState = JSON.parse(localStorage.getItem('treeState') || '{}');
+        document.querySelectorAll('.folder').forEach(folder => {
+            const key = folder.getAttribute('data-folder-id');
+            if (key && savedState.hasOwnProperty(key)) {
+                const shouldExpand = savedState[key];
+                const toggle = folder.querySelector(':scope > .node .toggle');
+                if (shouldExpand && !folder.classList.contains('expanded')) {
+                    folder.classList.add('expanded');
+                    if (toggle) toggle.textContent = '▼';
+                } else if (!shouldExpand && folder.classList.contains('expanded')) {
+                    folder.classList.remove('expanded');
+                    if (toggle) toggle.textContent = '▶';
+                }
+            }
+        });
+        
+        // 页面点击
+        document.querySelectorAll('.page').forEach(page => {
+            const nodeDiv = page.querySelector('.node');
+            nodeDiv?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const pageId = page.getAttribute('data-page');
+                if (pageId) loadPage(pageId);
+            });
+        });
+    }
+
+    function loadPage(pageId) {
+        const url = `pages/${pageId}.htm`;
+        document.getElementById('contentArea').innerHTML = `<iframe class="content-frame" src="${url}" title="文档内容"></iframe>`;
+        updateActiveNav(pageId);
+        history.pushState(null, '', `#${pageId}`);
+    }
+
+    function updateActiveNav(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        const active = document.querySelector(`.page[data-page="${pageId}"]`);
+        if (active) active.classList.add('active');
+    }
+
+    // 监听来自 iframe 的消息
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'nav' && event.data.page) {
+            loadPage(event.data.page);
+        }
+    });
+
+    // 初始化
+    function init() {
+        buildFlatPageList();
+        const treeHtml = renderTree(NAV_TREE);
+        document.getElementById('navTree').innerHTML = treeHtml;
+        bindTreeEvents();
+        
+        let start = 'what_is_mgw';
+        const hash = location.hash.slice(1);
+        // 检查页面是否存在
+        if (hash && flatPageList.some(p => p.id === hash)) start = hash;
+        loadPage(start);
+    }
+    
+    window.addEventListener('hashchange', () => {
+        const hash = location.hash.slice(1);
+        if (hash && flatPageList.some(p => p.id === hash)) loadPage(hash);
+        else loadPage('fast_start');
+    });
+    
+    init();
+</script>
+
+<script src="/js/base.js"></script>
+
+</body>
+</html>

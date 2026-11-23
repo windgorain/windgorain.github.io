@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>在线设备</h1>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "基础配置-在线设备" </p>
+    <img src="img/base_config/neighbor_list_1.png" height="250">
+    <p>同一个账号可以登录多台设备, 这里展示这些设备的信息 </p>
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>xnetc-view>show neighbor
+ PublicIP        IP              Hostname
+--------------------------------------
+ 1.1.1.1         10.255.255.2    win
+ 2.2.2.2         10.255.255.3    iphone
+ 3.3.3.3         10.255.255.4    macbook
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=260>show neighbor</td> <td>显示在线设备<br>PublicIP: 设备自身的公网IP<br>IP: 给设备分配的唯一标记<br>Hostname:设备名</td> </tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "neighbor"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

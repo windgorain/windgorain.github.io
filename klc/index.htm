@@ -1,64 +1,141 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>KLC</title>
-   
-<link rel="stylesheet" type="text/css" href="/css/base.css">
-<link rel="stylesheet" type="text/css" href="/css/container.css">
-<link rel="stylesheet" type="text/css" href="/js/my/toolbar/toolbar.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VNMesh内网内核编排工具, 无需开发, 快速组建内核功能。" />
+    <meta property="og:title" content="vnmesh官网-网络互联工具| 无需公网ip | 远程访问 | 搭建网站 | 内核编排" />
+    <meta property="og:description" content="vnmeshVNMesh是一组网络互联工具, 包含安全的内网穿透工具、内核编排工具。无需公网IP，快速发布应用到公网。" />
 
-<script src="/js/jquery/jquery.js"></script>
-<script src="/js/my/copyright.js"></script>
-<script src="/js/my/string/string.js"></script>
-<script src="/js/my/toolbar/toolbar.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLC - Kernel Level Context</title>
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/grid.css">
 </head>
-
 <body>
+    <div id="toolbar"></div>
+    <script src="/js/toolbar.js"></script>
 
-<!-- ToolBar Begin -->
-<script> var menu_current_page = "KLC"; </script>
-<script src="/menu.js"></script>
-<!-- ToolBar End -->
+    <section class="hero">
+       <div class="container">
+            <div class="heor-content">
+                <h1>KLC<span>内核可编程</span>系统</h1>
+                <p>方便的构建内核程序</p>
+                <a href="https://github.com/windgorain/klc" target="_blank"> <p>github: github.com/windgorain/klc</p> </a>
 
-<!-- container Begin -->
-<div class="Container">
+                <div class="line">
+                    <div style="display: flex; gap: 10px; margin-top: auto;">
+                        <a href="download/klc_0.2.4.tar.gz" style="background-color:#765498;" class="download-btn"><i class="fas fa-download"></i>Linux x64/arm64/arm32</a>
+                    </div>
+                </div>
 
-	<div class="Container-Block">
-		<div class="Title">下载</div>
-		<div class="Content">
-            <li><a href="https://github.com/windgorain/klc" target="_blank">github地址: https://github.com/windgorain/klc</a></li>
+                <div class="line">
+                    <div class="line-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>当前版本：v0.2.4</span>
+                    </div>
+                    <a href="version.htm">
+                        <div class="line-item">
+                            <i class="fas fa-history"></i>
+                            <span>发布历史</span>
+                        </div>
+                    </a>
+                    <div class="line-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>最新发布日期：2026年11月1日</span>
+                    </div>
+                </div>
+
+            </div>
+       </div>
+    </section>
+
+    <section class="container">
+        <div class="section-title">
+            <h2>核心特性</h2>
+       </div>
+
+        <div class="grids">
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div>
+                        <h3>简单快捷</h3>
+                        <p>快速的修改内核功能</p>
+                    </div>
+                </div>
+                
+                <div class="grid-details">
+                    <p> 快速编译/加载/卸载 </p>
+                    <p>方便的扩展ebpf功能</p>
+                    <p>单APP可加载多实例, 也可加载APP的不同版本</p>
+                    <p>不断流升级, 方便热升级</p>
+                </div>
+            </div>
+
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-arrows-alt"></i>
+                    </div>
+                    <div>
+                        <h3>良好的兼容性</h3>
+                        <p>和内核版本解耦</p>
+                    </div>
+                </div>
+                
+                <div class="grid-details">
+                    <p>APP只需要编译一次即可多内核版本上运行(Run Anywhere)</p>
+                    <p>无需发布源代码, 用户直接加载APP运行</p>
+                    <p>部分APP即可在用户态/内核态运行, 方便调试</p>
+                </div>
+            </div>
+
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div>
+                        <h3>极致性能</h3>
+                        <p>高性能处理流量</p>
+                    </div>
+                </div>
+                
+                <div class="grid-details">
+                    <p> 极高性能, 支持JIT运行</p>
+                </div>
+            </div>
+
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <div>
+                        <h3>功能丰富</h3>
+                        <p>各种各样的组件</p>
+                    </div>
+                </div>
+                
+                <div class="grid-details">
+                    <p> 数量丰富的基础组件, 足够日常使用 </p>
+                    <p> 提供复杂组件, 依赖KLC </p>
+                    <p> 支持开发新组件 </p>
+                </div>
+            </div>
+
         </div>
-	</div>	
+    </section>
 
-	<div class="Container-Block">
-	<div class="Title">介绍</div>
-		<div class="Content">
-            <li>一款内核级别的SPF运行时环境, 可以在内核运行SPF文件</li>
-            <li>是MGW高级功能的基础环境</li>
-		</div>
-	</div>
-
-	<div class="Container-Block">
-	<div class="Title">安装步骤</div>
-		<div class="Content">
-            <li>1. 下载KLC代码并解压缩:<br> tar xzf klc.tar.gz</li>
-            <li>2. 编译: <br>make</li>
-            <li>3. 加载KLC系统:<br> load_spf.sh</li>
-            <li>4. 显示已加载模块:<br> klctool show instance </li>
-		</div>
-	</div>
-
-
-</div>
-<!-- container End -->
-
-<div id="copyright"></div>
+    <div id="footbar"></div> <script src="/js/footbar.js"></script>
+    <div id="copyright"></div> <script src="/js/copyright.js"></script>
+    <script src="/js/base.js"></script>
 
 </body>
-
 </html>
-
-

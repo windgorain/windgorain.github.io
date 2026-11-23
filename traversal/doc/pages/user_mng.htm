@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>用户管理</h1>
+    <p> 可以创建用户/用户组, 域名映射资源可以关联用户组 </p>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "用户管理-用户列表" </p>
+    <img src="img/user_mng/user_mng_1.png" height="320">
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> users-view </strong></p>
+    <p>使用示例:</p>
+<pre>
+users-view>user test password 123456
+users-view>user test group group1
+users-view>show users
+    Name:test;Group:group1;Level:0
+users-view>no user test
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=360>user %NAME password %PASSWORD</td> <td>添加一个名为%NAME的用户并设置密码为%PASSWORD</td> </tr>
+            <tr> <td>user %NAME group %GROUP </td> <td>设置用户所属于的用户组</td> </tr>
+            <tr> <td>show users</td> <td>显示用户</td> </tr>
+            <tr> <td>no user %NAME </td> <td>删除名为%NAME的用户</td> </tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "user_mng"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

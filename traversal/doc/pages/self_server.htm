@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>自建服务器</h1>
+    <p> 可以将您自己的服务器添加到此处。</p>
+    <p> 客户端会自动到自建服务器上去认证，认证通过后，会将其加入到公网节点列表。</p>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "自建服务器-服务器" </p>
+    <img src="img/self_server/self_server_1.png" height="250">
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>
+xnetc-view>self public node 1.2.3.4
+xnetc-view>no self public node 1.2.3.4
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=300>self public node %SERVER</td> <td>添加一个服务器</td> </tr>
+            <tr> <td>no self public node %SERVER</td> <td>删除一个服务器</td> </tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "self_server"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

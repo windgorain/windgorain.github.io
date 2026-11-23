@@ -1,0 +1,80 @@
+        .success-card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 48px;
+            padding: 50px 50px 60px;
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            z-index: 2000;
+            animation: fadeUp 0.5s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translate(-50%, -30%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .success-icon {
+            font-size: 5.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 8px 16px rgba(26,188,156,0.3));
+        }
+
+        .success-card h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: linear-gradient(145deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .message {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 45px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .footnote {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 30px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footnote i {
+            color: var(--primary);
+        }
+
+        /* 确保卡片在移动端合适显示 */
+        @media (max-width: 600px) {
+            .success-card {
+                padding: 35px 25px 45px;
+            }
+            .success-icon {
+                font-size: 4rem;
+            }
+            .success-card h1 {
+                font-size: 2rem;
+            }
+            .message {
+                font-size: 1.1rem;
+            }
+        }

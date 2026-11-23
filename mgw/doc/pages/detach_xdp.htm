@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>detach xdp</h1>
+
+    <p>从接口解关联XDP</p>
+    <p>命令格式: sudo ./mgwtool detach xdp -t 接口名 </p>
+    <p>示例: </p>
+<pre><p class="code">$ sudo ./mgwtool tree instance
+[eth0]
+└── c1
+$ sudo ./mgwtool detach xdp -t eth0
+$ sudo ./mgwtool tree instance
+c1
+</p></pre>
+    <p> 可以看到实例c1和接口eth0已经解除了关系 </p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "detach_xdp"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

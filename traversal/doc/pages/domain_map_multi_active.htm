@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>域名映射的灾备多活</h1>
+
+    <p>域名映射可以多个设备配置同一个资源，共同映射同一个公网服务地址，这个功能有两个特点:
+        <li>当一个用户设备异常失联时，其它设备依然工作，可以保障用户提供的公网服务还正常运行。</li>
+        <li>用户访问域名映射服务时, 会进行负载分担到用户的不同设备。</li>
+    </p>
+
+    <h2>配置方法</h2>
+    <p>在多个设备上, 配置相同名称的域名映射规则。</p>
+
+    <h2>访问方式</h2>
+    <p>此时用户访问时可以忽略设备名，如:
+        <pre>https://user-res.r1.vnmesh.com</pre>
+        其中user即为您的用户名, res为您创建的域名映射规则名称
+    </p>
+    <p class="note">
+        如果想精确访问某台设备, 可以使用如下访问方式:<br>
+        https://user-res-dev.r1.vnmesh.com
+    </p>
+
+    <h2>忽略资源名的访问方式</h2>
+    <p>如果您创建的域名映射名称为"default", 则用户访问时可以忽略资源名, 如下:
+        <pre>https://user.r1.vnmesh.com</pre>
+        其中user即为您的用户名
+    </p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "domain_map_multi_active"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+main {
+    padding: 3rem 0;
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, auto));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .grids {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.grid-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 6px 16px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-top: 4px solid var(--primary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .grid-card {
+        padding: 20px;
+    }
+}
+
+.grid-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.grid-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.2rem;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.windows .grid-icon {
+    background-color: #0078d7;
+}
+
+.mac .grid-icon {
+    background-color: #444444;
+}
+
+.linux .grid-icon {
+    background-color: #f1502f;
+}
+
+.termux .grid-icon {
+    background-color: #000000;
+}
+
+.docker .grid-icon {
+    background-color: #000000;
+}
+
+.grid-header h3 {
+    font-size: 1.6rem;
+}
+
+.grid-details {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.grid-details p {
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+}
+
+.download-btn {
+    display: block;
+    padding: 0.5rem 1rem 0.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    border: 1px solid;
+}
+
+.download-btn i {
+    margin-right: 0.5rem;
+}
+
+.download-large-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.download-large-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.download-large-btn i {
+    margin-right: 0.5rem;
+}
+
+/* 安装指南 */
+.instructions {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 6px 16px var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.instructions h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.steps {
+    display: block;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.step-number {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+

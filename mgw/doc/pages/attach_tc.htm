@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>attach tc</h1>
+
+    <p>将实例关联到接口的TC入口</p>
+    <p>命令格式: sudo ./mgwtool attach tc -n 实例名 -t 接口名 [-p 入口函数名] [-a 加载位置] </p>
+    <p>示例: </p>
+<pre><p class="code">$ sudo ./mgwtool load instance -n t1 -f cluster/tc_ip_cluster_kern.o
+$ sudo ./mgwtool attach tc -n t1 -t eth0
+$ sudo ./mgwtool tree ins
+[eth0]
+└── t1
+
+$ sudo tc filter del dev eth0 ingress #解除关联
+</p></pre>
+
+    <h2>说明</h2>
+    <table class="table">
+        <tbody>
+        <tr><td width=100px>-p</td><td>MGW的入口函数名, 默认为mgw_input</td></tr>
+        <tr><td>-m</td><td>加载位置:<br>1: ingress (缺省加载位置)<br>2: egress<br>4: custom</td></tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "attach_tc"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

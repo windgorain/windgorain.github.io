@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>文档中心 · VNMesh</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>设备映射</h1>
+    <p> 设备映射可以将内网整个设备全端口映射到公网。 </p>
+    <p>
+    <strong>静态设备映射:</strong>
+        <li>无需访问者主动开启, 配置后即可长期生效。</li>
+    <strong>动态设备映射:</strong>
+        <li>访问者需要通过 https://公网节点:2 开启访问权限, 其所在的网络才会开通和此设备的连通。</li>
+        <li>不需要同网络内的所有访问者纷纷开通动态设备映射访问权限, 仅需管理员开启即可. 比如用于分支机构: 分支机构管理员开通权限后, 则分支机构网络内部所有人都可以访问此设备。</li>
+        <li>管理员需要持续维持访问权限的开启, 长时间不维持开启, 则访问权限自动关闭。</li>
+        <li>可以为动态设备映射配置设备令牌, 只有持有令牌的用户才能访问此设备映射。</li>
+    <strong>完全设备映射:</strong>
+        <li> 这是最接近 "真正拥有公网IP体验" 的模式，但要求用户自建服务器。</li>
+    </p>
+
+    <h2>WEB配置</h2>
+    <p>配置路径: "公网服务-设备映射"。</p>
+    <img src="img/public_service/dev_map_1.png" height="300">
+
+    <h2>命令行配置</h2>
+    <p><strong> 配置视图： config-view -> xnetc-view </strong></p>
+    <p>使用示例:</p>
+<pre>
+xnetc-view>public-service hostfwd static enable
+xnetc-view>public-service hostfwd ip enable
+xnetc-view>public-service hostfwd token 123456
+xnetc-view>no public-service hostfwd static enable
+xnetc-view>no public-service hostfwd ip enable
+
+</pre>
+
+    <p><strong>命令说明:</strong></p>
+    <table class="table">
+        <tbody>
+            <tr> <td width=360>[no] public-service hostfwd static enable</td> <td>开启/关闭静态设备映射</td> </tr>
+            <tr> <td>[no] public-service hostfwd ip enable </td> <td>开启/关闭动态设备映射</td> </tr>
+            <tr> <td>public-service hostfwd token %TOKEN</td> <td>配置动态设备映射token为%TOKEN, 例如: 123456</td> </tr>
+            <tr> <td>no public-service hostfwd token </td> <td>取消token</td> </tr>
+        </tbody>
+    </table>
+
+    <h2>动态设备映射</h2>
+    <p>启用"动态设备映射后", 访问者就可以使用浏览器访问: https://公网节点:2 </p>
+    <img src="img/public_service/dev_map_2.png" height="340">
+    <p>点击"去开启映射", 跳转到如下界面: </p>
+    <img src="img/public_service/dev_map_3.png" height="400">
+    <p> 输入您的 用户ID或用户名 和 设备名 以及 访问令牌(Token) 后点击 开启映射 按钮。此时您访问此公网地址就会映射到内网设备。 </p>
+    <p> 此页面会定期自动刷新以维持访问权限的开启。</p>
+    <p> 当管理员关闭访问权限时, 所有连接立即中断, 这会禁止本网络内所有人的访问。 </p>
+    <p> 当管理员机器休眠或者管理员关闭此页面后, 访问权限的会在一段时间后自动关闭。 </p>
+
+    <p class="note"> TCP端口2被作为动态设备映射的管理端口, 不参与动态设备映射 </p>
+
+    <h2>静态设备映射</h2>
+    <p>在"公网服务-设备映射"页面配置勾选"静态设备映射"并配置访问者的源IP即可。</p>
+    <p>例如，配置为"1.1.1.1"，则从"1.1.1.1"访问公网节点, 就会被映射到内网设备。</p>
+    <p class="note"> 可配置多个静态IP。 </p>
+    <p class="note"> 当有多台设备开启静态设备映射时, 这些设备之间互为主备状态, 任意一台故障, 会自动切换到另一台。</p>
+
+    <h2>完全设备映射</h2>
+    <p> 到"自建服务器-服务器"中配置自建服务器地址，然后在自建服务器上安装服务软件，开启完全设备映射，即可体验完全设备映射了。 </p>
+    <p class="note"> 自建服务器软件地址: <a target="_blank" href="https://www.vnmesh.com/download/vnmesh_pn.htm"> https://www.vnmesh.com/download/vnmesh_pn.htm </a> </p>
+    <p class="note"> 完全设备映射会将内网设备完全暴漏到公网，可以配合ECS上的安全组或ACL提高安全性。</p>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "dev_map"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>

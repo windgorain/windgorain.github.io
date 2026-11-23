@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNMesh - 内网穿透</title>
+    <link rel="stylesheet" href="/css/icons.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/grid.css">
+</head>
+<body>
+    <div id="toolbar"></div>
+    <script src="/js/toolbar.js"></script>
+
+    <section class="hero">
+       <div class="container">
+            <div class="heor-content">
+                <h1>VNMesh<span>内网穿透</span></h1>
+                <p> 无需公网IP，快速发布应用到公网 </p>
+
+                <div class="line">
+                    <div style="display: flex; gap: 10px; margin-top: auto;">
+                        <a href="user/user_reg.htm" class="download-btn" style="background-color:#aa0000;">免费注册</a>
+                        <a href="index.htm" class="download-btn" style="background-color:#765498;">客户端下载</a>
+                        <a href="server.htm" class="download-btn" style="background-color:#765498;">服务端下载</a>
+                        <a href="doc/index.htm" class="download-btn" target="_blank" style="background-color:#987654;">文档中心</a>
+                    </div>
+                </div>
+
+                <div class="line">
+
+                    <div class="line-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>当前版本：1.1.10</span>
+                    </div>
+
+                    <div class="line-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>最新发布日期：2026年8月25日</span>
+                    </div>
+
+                </div>
+
+            </div>
+       </div>
+    </section>
+
+    <section class="container">
+        <div class="section-title">
+            <h2>服务端下载</h2>
+            <p>如官方共享集群不满足需求, 可使用服务端自建私有服务集群</p>
+       </div>
+
+        <div class="grids">
+
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Linux Lite版</h3>
+                        <p>精简版</p>
+                    </div>
+                </div>
+
+                <div class="grid-details">
+                    <p> 无设备映射 </p>
+                    <p> 有限并发连接 </p>
+                    <p> 部署简单方便, 解压即可使用 </p>
+               </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/vnmesh_pn/vnmesh_pn_lite_linux_x64_1.1.10.tar.gz" class="download-large-btn"><i class="fas fa-download"></i>x64 CPU </a>
+                    <a href="download/vnmesh_pn/vnmesh_pn_lite_linux_arm64_1.1.10.tar.gz" class="download-large-btn"><i class="fas fa-download"></i>Arm64 CPU </a>
+                    <a href="download/vnmesh_pn/vnmesh_pn_lite_linux_arm32_1.1.10.tar.gz" class="download-large-btn"><i class="fas fa-download"></i>Arm32 CPU </a>
+                </div>
+            </div>
+
+            <div class="grid-card windows">
+                <div class="grid-header">
+                    <div class="grid-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div>
+                        <h3>Linux Pro版</h3>
+                        <p>专业版</p>
+                    </div>
+                </div>
+
+                <div class="grid-details">
+                    <p> 支持设备映射(动态设备映射、静态设备映射、完全设备映射)</p>
+                    <p> 超大并发连接(设备映射和端口映射) </p>
+                    <p> 需要KLC系统支持</p>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="download/vnmesh_pn/vnmesh_pn_pro_linux_x64_1.1.10.tar.gz" class="download-large-btn"><i class="fas fa-download"></i>x64 CPU </a>
+                    <a href="download/vnmesh_pn/vnmesh_pn_pro_linux_arm64_1.1.10.tar.gz" class="download-large-btn"><i class="fas fa-download"></i>Arm64 CPU </a>
+                    <a href="download/vnmesh_pn/vnmesh_pn_pro_linux_arm32_1.1.10.tar.gz" class="download-large-btn"><i class="fas fa-download"></i>Arm32 CPU </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-title">
+            <h2>服务端使用说明</h2>
+       </div>
+        <section class="instructions">
+            <h2>启动服务</h2>
+            <p>解压, 进入解压目录, 选择以下方式之一运行:
+            
+            <div class="steps">
+
+                <div class="step">
+                    <table>
+                        <tr> <td width=200px>后台运行</td> <td> sudo ./vnmesh_pn -d </td> <td></td> </tr>
+                        <tr> <td>前台运行, 带命令行</td> <td> sudo ./vnmesh_pn -c </td> <td></td> </tr>
+                        <tr> <td>前台运行, 无命令行</td> <td> sudo ./vnmesh_pn </td> <td></td> </tr>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="instructions">
+            <h2>配置方式</h2>
+            <p>
+            
+            <div class="steps">
+                <div class="step">
+                    <li> 配置方式1: 使用 telnet localhost 2300 进入配置界面 </li>
+                    <li> 配置方式2: 使用带命令行的前台运行方式可自动进入配置界面 </li>
+                    <li> 配置方式3: 更改配置文件后重启服务. 配置文件路径: conf_dft/save/xnetp/config.cfg </li>
+                </div>
+            </div>
+        </section>
+        
+        <section class="instructions">
+            <h2>配置说明</h2>
+            <p>通过 telnet localhost 2300 等方式进入配置界面后, 按照以下步骤安装并使用:</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <h3>进入管理视图</h3>
+                    <table>
+                        <tr><td width=200px> user-view&gt; <font color=green>config-view </font> </td> <td>  #进入配置视图 </td> </tr>
+                        <tr><td> config-view&gt; <font color=green>xnetp-view </font> </td> <td>  #进入xnetp视图 </td> </tr>
+                        <tr><td> xnetp-view&gt; <font color=green>show this</font> </td> <td>  #显示当前配置</td> </tr>
+                    </table>
+                </div>
+                
+                <div class="step">
+                    <h3>配置PN节点可选信息</h3>
+                    <table>
+                        <tr><td width=360px> xnetp-view&gt; <font color=green>position Shanghai </font></td><td> #位置. 可输入服务器的地理位置等 </td> </tr>
+                        <tr><td> xnetp-view&gt; <font color=green>name mypn1 </font></td><td> #名称. 此服务器的名称 </td></tr>
+                        <tr><td> xnetp-view&gt; <font color=green>bandwidth 3 </font></td><td> #带宽. 单位Mbps </td></tr>
+                        <tr><td> xnetp-view&gt; <font color=green>domain name example.com </font></td><td> #节点域名, 用于域名映射. ssl证书和vnmesh_pn程序放在同级目录, 名称为:local_cert.pem 和 local_key.pem </td></tr>
+                        <tr><td> xnetp-view&gt; <font color=green>save</font></td><td> #保存配置</td></tr>
+                    </table>
+                </div>
+                
+                <div class="step">
+                    <h3>配置PN Auth Token</h3>
+                    <p>
+                        xnetp-view&gt; <font color=green> pn auth token 123456789 </font> &nbsp; &nbsp; #请将 123456789 改为您的密码<br>
+                        xnetp-view&gt; <font color=green> save </font> &nbsp; &nbsp; #保存配置
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>配置客户端, 使其连接自建转发节点</h3>
+                    <p>
+                        在VNMesh客户端设备上, 使用浏览器访问: http://localhost:8888 <br>
+                        到 "私有集群 - 认证码" 中输入您刚刚配置的 PN Auth Token <br>
+                        到 "私有集群 - 服务器" 中创建一个服务器, 输入您服务器的IP地址或域名
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>开始使用</h3>
+                    <p>现在您可以访问您的服务器地址了, TCP请求会自动映射到您的VNMesh客户端节点 </p>
+                </div>
+
+                <div class="step">
+                    <h3>您可以使能"开机自启动"功能</h3>
+                    <p>
+                        user-view&gt; <font color=green> config-view </font> <br>
+                        config-view&gt; <font color=green>sys-view </font> <br>
+                        sys-view&gt; <font color=green>autostart  </font>  &nbsp;  &nbsp;  &nbsp; &nbsp;  #开机自启动, 会自动创建systemd脚本<br>
+                        sys-view&gt; <font color=green>no autostart </font>  &nbsp; &nbsp;#关闭自启动<br>
+                        sys-view&gt; <font color=green> save  </font> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #保存配置
+                    </p>
+                </div>
+
+                <br>
+                <div class="step">
+                    <h3>设备映射(Pro版)</h3>
+                </div>
+
+                <div class="step">
+                    <h3>安装KLC</h3>
+                    <p>
+                        Pro版本依赖KLC系统支持, 需要先下载KLC, 并编译和加载KLC到内核.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>开启完全设备映射</h3>
+                    <p>
+                        xnetp-view&gt; <font color=green> global device map enable </font> </br>
+                        xnetp-view&gt; <font color=green> save </font>  &nbsp; &nbsp;  #保存配置
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>设备映射过滤规则</h3>
+                    <p>
+                        在文件 script/xnetp_auto_run.sh 存在默认的设备映射规则(修改配置文件后, 重启服务生效) <br>
+<font color=green>
+<pre>
+#配置map_acl, 用于设备映射过滤规则
+sudo ./leaf/mgw-acl add -n map_acl -a drop -t 1   #icmp报文禁止映射到内网设备
+sudo ./leaf/mgw-acl add -n map_acl -a drop -t tcp --dport 22  #22端口禁止映射到内网设备, 默认送给本机, 用户如果需要映射到内网可以自行修改
+sudo ./leaf/mgw-acl default pass -n map_acl #默认其它情况, 映射到内网设备
+</pre>
+</font> 
+<br>
+                        您可以通过如下命令行在线修改端口过滤规则(实时生效, 服务重启失效):
+<font color=green>
+<pre>
+sudo ./mgw/leaf/mgw-acl add -n app_port -a 0 -t tcp --dport 80    #例如允许80端口映射到客户端. -a 0 表示允许
+sudo ./mgw/leaf/mgw-acl add -n app_port -a 1 -t tcp --dport 443   #例如禁止443端口映射到客户端. -a 1 表示禁止
+</pre>
+</font>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </section>
+
+    <div id="footbar"></div> <script src="/js/footbar.js"></script>
+    <div id="copyright"></div> <script src="/js/copyright.js"></script>
+    <script src="/js/base.js"></script>
+
+</body>
+</html>

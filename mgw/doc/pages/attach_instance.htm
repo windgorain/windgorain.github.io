@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 · MGW</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+<div class="doc-wrapper">
+    <h1>attach instance</h1>
+
+    <p>	将实例关联到上游实例</p>
+    <p>命令格式: sudo ./mgwtool attach instance -n 实例名 -t 目标实例 [-p 入口函数名] [-s 指定插槽号] [-w 权重]</p>
+    <p>示例: </p>
+<pre><p class="code">$ sudo ./mgwtool load instance -n c1 -f cluster/xdp_ip_cluster_kern.o
+$ sudo ./mgwtool load instance -n p1 -f leaf/xdp_ip_printer_leaf_kern.o
+$ sudo ./mgwtool load instance -n p2 -f leaf/xdp_ip_printer_leaf_kern.o
+$ sudo ./mgwtool tree instance
+c1
+p1
+p2
+
+$ sudo ./mgwtool attach instance -n p1 -t c1
+$ sudo ./mgwtool attach instance -n p2 -t c1
+$ sudo ./mgwtool tree instance
+c1
+├── p1
+└── p2
+</p></pre>
+    <p> 上述示例加载了三个MGW实例: c1/p1/p2。在未关联时, 三个实例之间无上下游关系。关联之后, c1连接到了下游两个实例:p1和p2 </p>
+
+    <h2>说明</h2>
+    <table>
+        <tbody>
+        <tr><td width=100px>-p</td><td>MGW的入口函数名, 默认为mgw_input</td></tr>
+        <tr><td>-s</td><td>关联的插槽号, 如果未指定则自动分配</td></tr>
+        <tr><td>-w</td><td>当关联到cluster类实例上时, 可以指定流量分配权重. 范围1-255, 数字越大权重越高</td></tr>
+        </tbody>
+    </table>
+
+    <div class="page-nav" id="pageNav">
+        <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
+        <div class="nav-next"><div class="nav-label">下一篇</div><a class="nav-link" id="nextLink">加载中...</a></div>
+    </div>
+</div>
+
+<script> var current_id = "attach_instance"; </script>
+<script src="pages.js"></script>
+<script src="/js/base.js"></script>
+
+</body>
+</html>
