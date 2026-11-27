@@ -17,7 +17,7 @@
 
     <h2>MacOS</h2>
     <p>到下载页面下载对应平台的MacOS客户端，然后如下操作:</p>
-<pre><p class="code">tar xzf <font color=green>vnmesh_macos_apple_1.2.1.tar.gz</font>  #绿色部分改为您下载文件的名字
+<pre><p class="code">tar xzf <font color=green>vnmesh_macos_apple_1.2.3.tar.gz</font>  #绿色部分改为您下载文件的名字
 cd vnmesh
 xattr -rd com.apple.quarantine vnmesh #这条命令仅需执行一次, 后续不用再执行
 ./vnmesh -d
@@ -30,7 +30,7 @@ telnet localhost 2300
 
     <h2>Linux</h2>
     <p>到下载页面下载对应平台的Linux客户端，然后解压和运行:</p>
-<pre><p class="code">tar xzf <font color=green>vnmesh_linux_x64_1.2.1.tar.gz</font>  #绿色部分改为您下载文件的名字
+<pre><p class="code">tar xzf <font color=green>vnmesh_linux_x64_1.2.3.tar.gz</font>  #绿色部分改为您下载文件的名字
 cd vnmesh
 ./vnmesh -d
 
@@ -41,7 +41,7 @@ telnet localhost 2300
 
     <h2>Docker</h2>
     <p>到下载页面下载Docker镜像</p>
-<pre><p class="code">docker load -i <font color=green>vnmesh_docker_x64_1.2.1.tar</font> #绿色部分改为您下载文件的名字 
+<pre><p class="code">docker load -i <font color=green>vnmesh_docker_x64_1.2.3.tar</font> #绿色部分改为您下载文件的名字 
 docker run -p 8888:8888 -d --name vnmesh vnmesh
 
 #可以通过telnet查看配置
@@ -52,15 +52,15 @@ docker exec -ti vnmesh telnet localhost 2300
     <h2>路由器</h2>
     <p>到下载页面下载路由器版本，通常是MIPSEL版本(较新的路由器)或MIPS版本(老旧路由器), 然后如下操作</p>
 <pre><p class="code"> #将软件上传到路由器
-scp -O vnmesh_linux_mipsel_1.2.1.tar.gz root@192.168.1.1:~/ 
+scp -O vnmesh_linux_mipsel_1.2.3.tar.gz root@192.168.1.1:~/ 
 
 #登录路由器
 ssh root@192.168.1.1
 root@192.168.1.76's password:  #输入路由器管理员密码
 
 #解压文件
-tar xzf vnmesh_linux_mipsel_1.2.1.tar.gz
-rm -fr vnmesh_linux_mipsel_1.2.1.tar.gz
+tar xzf vnmesh_linux_mipsel_1.2.3.tar.gz
+rm -fr vnmesh_linux_mipsel_1.2.3.tar.gz
 
 #运行vnmesh
 cd vnmesh
@@ -75,7 +75,7 @@ cd vnmesh
 exit 0 </p></pre>
 
     <p> 然后就可以通过浏览器访问VNMesh管理系统: </p>
-<pre><p class="code"> http://192.168.1.2.1888 </p></pre>
+<pre><p class="code"> http://192.168.1.1:8888 </p></pre>
 
     <div class="page-nav" id="pageNav">
         <div class="nav-prev"><div class="nav-label">上一篇</div><a class="nav-link" id="prevLink">加载中...</a></div>
